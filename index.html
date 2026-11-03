@@ -4,276 +4,305 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cabinet dentaire Soualhi | Dentiste à Casablanca</title>
-<meta name="description" content="Cabinet dentaire Soualhi à Casablanca : implants, orthodontie invisible, blanchiment et esthétique du sourire. Réservation simple et rapide sur WhatsApp.">
-<script>document.documentElement.classList.add('js');</script>
-<!-- build-note: single-file interface mockup, assets in ./assets -->
+<meta name="description" content="Cabinet dentaire Soualhi à Casablanca : implants, orthodontie invisible, esthétique du sourire. Réservation simple sur WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://api.fontshare.com">
-<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=zodiak@100,300,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Dentist","name":"Cabinet dentaire Soualhi","address":{"@type":"PostalAddress","streetAddress":"128, boulevard d'Anfa","addressLocality":"Casablanca","addressCountry":"MA"},"telephone":"+212600000000","openingHours":["Mo-Fr 09:00-19:00","Sa 09:00-14:00"],"priceRange":"Sur devis"}
 </script>
 <style>
+@property --pos { syntax: '<number>'; inherits: true; initial-value: 0.5; }
 :root{
-  --bg:#fbfdfd;
-  --surface:#edf4f6;
-  --ink:#0a2e3f;
-  --muted:#3d5561;
-  --accent:#0e7c9b;--accent-text:#0a6884;
-  --accent-dark:#0b3a4d;
-  --field-ink:#eef7fa;
-  --wa:#25d366;
-  --wa-ink:#0b3520;
+  --bg:#e6dbc7; --surface:#ddd0b9; --paper:#efe7d3; --ink:#062b8a; --muted:#3a5aa8;
+  --wa:#25d366; --wa-dark:#128c4a;
   --ease-out:cubic-bezier(0.23,1,0.32,1);
-  --ease-inout:cubic-bezier(0.77,0,0.175,1);
   --margin:clamp(20px,4.5vw,72px);
-  --step-small:0.875rem;
+  --step-small:clamp(0.8125rem,0.79rem + 0.1vw,0.875rem);
   --step-body:clamp(1.0625rem,1rem + 0.25vw,1.1875rem);
   --step-lead:clamp(1.25rem,1.1rem + 0.7vw,1.625rem);
-  --step-head:clamp(2.1rem,1.4rem + 3vw,3.9rem);
-  --serif:"Zodiak",Georgia,"Times New Roman",serif;
+  --step-head:clamp(2rem,1.3rem + 3.2vw,4rem);
   --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);font-size:var(--step-body);line-height:1.55;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
-::selection{background:var(--accent);color:#fff}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:var(--step-body);line-height:1.45;letter-spacing:-0.005em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-::-webkit-scrollbar{width:11px}
-::-webkit-scrollbar-track{background:var(--surface)}
-::-webkit-scrollbar-thumb{background:#b9cfd6;border-radius:6px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;font-family:var(--sans);font-size:1rem;font-weight:600;padding:14px 28px;border:none;border-radius:999px;cursor:pointer;text-decoration:none;transition:transform 160ms var(--ease-out),background 200ms ease}
-.btn:hover{background:var(--accent-dark)}
+.btn{display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;font:inherit;font-weight:500;text-decoration:none;border-radius:999px;padding:15px 30px;transition:transform 160ms var(--ease-out),background 160ms ease,opacity 160ms ease}
 .btn:active{transform:scale(0.97)}
-.btn.wa{background:var(--wa);color:var(--wa-ink)}
-.btn.wa:hover{background:#1eb857}
-.btn.light{background:#fff;color:var(--accent-dark)}
-.btn.light:hover{background:var(--surface)}
+.btn-wa{background:var(--wa);color:#06330f}
+@media (hover:hover) and (pointer:fine){ .btn-wa:hover{background:#31e075} }
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
 
-/* ---------- docked header ---------- */
-.topbar{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;gap:28px;padding:14px var(--margin);background:var(--bg);transform:translateY(-102%);transition:transform 320ms var(--ease-out)}
+/* ---------- docked header (appears on scroll) ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:80;background:var(--bg);display:flex;align-items:center;gap:28px;padding:12px var(--margin);transform:translateY(-110%);transition:transform 320ms var(--ease-out)}
 .topbar.show{transform:translateY(0)}
-.topbar .wordmark{font-weight:600;font-size:1.125rem;text-decoration:none;white-space:nowrap}
+.topbar .wordmark{font-weight:500;font-size:1.125rem;text-decoration:none;white-space:nowrap;letter-spacing:-0.02em}
 .topbar nav{display:flex;gap:26px;margin-left:auto}
 .topbar nav a{text-decoration:none;font-size:0.9375rem;color:var(--muted);transition:color 160ms ease}
 .topbar nav a:hover{color:var(--ink)}
-.topbar .btn{padding:10px 22px;font-size:0.9375rem}
+.topbar .btn{padding:10px 22px;font-size:0.9375rem;background:var(--ink);color:var(--bg)}
 @media (max-width:760px){.topbar nav{display:none}}
 
-/* ---------- hero ---------- */
-.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--accent-dark)}
-.hero .ph{position:absolute;inset:0}
-.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:center 58%;animation:drift 26s ease-in-out infinite alternate}
-@keyframes drift{from{transform:scale(1)}to{transform:scale(1.07)}}
-.rail{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:3;display:flex;align-items:center;gap:34px;padding:20px var(--margin);background:rgba(6,32,43,0.55);color:#fff}
-.rail h1{font-size:clamp(2rem,2.6vw,2.5rem);font-weight:600;letter-spacing:-0.01em;line-height:1.08;white-space:nowrap}
-.rail h1 span{font-weight:600}
-.rail .sentence{font-size:1.125rem;line-height:1.45;max-width:44ch;color:#eaf4f7}
-.rail .links{margin-left:auto;display:flex;align-items:center;gap:26px;white-space:nowrap}
-.rail .links a{color:#fff;text-decoration:none;font-size:0.9375rem;opacity:0.92;transition:opacity 160ms ease}
-.rail .links a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
-.rail .btn{background:#fff;color:var(--accent-dark)}
-.rail .links a.btn{color:var(--accent-dark)}
-.rail .btn:hover{background:var(--surface)}
-.hero .scrolldown{position:absolute;left:var(--margin);bottom:26px;z-index:3;color:#fff;font-size:var(--step-small);text-decoration:none;display:flex;align-items:center;gap:10px;opacity:0.95}
-.hero .scrolldown svg{animation:bob 2.6s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-.hero .corner{position:absolute;right:calc(var(--margin) + 84px);bottom:26px;z-index:3;color:#fff;font-size:var(--step-small)}
-@media (max-width:1100px){.rail{gap:22px}.rail h1{font-size:1.6rem}.rail .sentence{font-size:1rem;max-width:30ch}.rail .links a:not(.btn){display:none}}
+/* ---------- hero : two-by-two board ---------- */
+.board{height:100svh;min-height:620px;padding:8px;display:grid;gap:8px;grid-template-rows:60px 1fr 1fr;grid-template-columns:1fr 1fr}
+.board .tile{overflow:hidden;position:relative}
+.btop{grid-column:1/-1;display:flex;gap:8px}
+.btop .logo{width:60px;flex:none;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:1.75rem;font-weight:500;letter-spacing:-0.05em}
+.btop .links{flex:1;background:var(--surface);display:flex;align-items:center}
+.btop .links nav{margin-left:42%;display:flex;gap:28px}
+.btop .links a{text-decoration:none;font-size:0.9375rem;color:var(--ink)}
+.btop .links a:hover{text-decoration:underline;text-underline-offset:5px}
+.btop .act{flex:none;background:var(--ink);color:var(--bg);display:flex;align-items:center;padding:0 30px;text-decoration:none;font-weight:500;font-size:1rem}
+.btop .act:active{transform:scale(0.97)}
+.name-tile{background:var(--paper);display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.name-tile .over{position:absolute;top:22px;left:24px;font-size:var(--step-small);color:var(--muted);letter-spacing:0.02em}
+.name-tile h1{font-size:clamp(96px,12.5vw,190px);font-weight:500;letter-spacing:-0.05em;line-height:0.9}
+.photo-tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.split .dark{background:var(--ink);color:var(--bg);padding:20px;font-size:1.5rem;line-height:1.25;letter-spacing:-0.01em;display:flex;flex-direction:column}
+.split .dark .ds{margin-top:auto;font-size:0.9375rem;color:#c9d4f2;letter-spacing:0}
+.split .lite{background:var(--surface);color:var(--ink);padding:20px;font-size:1.5rem;line-height:1.25;letter-spacing:-0.01em;display:flex;flex-direction:column}
+.split .lite a{margin-top:auto;font-size:1rem;font-weight:500;text-decoration:underline;text-underline-offset:5px}
 @media (max-width:760px){
-  .rail{flex-wrap:wrap;gap:14px;padding:16px 20px}
-  .rail h1{font-size:1.55rem;white-space:normal}
-  .rail .links a{display:none}
-  .rail .links{margin-left:auto}
-  .hero .corner{display:none}
-  .hero .mobcta{position:absolute;left:20px;right:92px;bottom:24px;z-index:4;color:#fff}
-  .hero .mobcta p{font-size:1.125rem;line-height:1.45;max-width:32ch;margin-bottom:14px;background:rgba(6,32,43,0.52);padding:10px 14px;border-radius:8px}
-  .hero .mobcta .btn{width:100%;justify-content:center}
-  .hero .scrolldown{display:none}
-}
-@media (min-width:761px){.hero .mobcta{display:none}}
-
-/* ---------- reveal (Emil: ease-out, staggered, visible without JS) ---------- */
-.js [data-reveal]>*{opacity:0;transform:translateY(22px)}
-.js [data-reveal].in>*{opacity:1;transform:none;transition:opacity 550ms var(--ease-out),transform 550ms var(--ease-out)}
-.js [data-reveal].in>*:nth-child(2){transition-delay:70ms}
-.js [data-reveal].in>*:nth-child(3){transition-delay:140ms}
-.js [data-reveal].in>*:nth-child(4){transition-delay:210ms}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important}
-  .js [data-reveal]>*{opacity:1;transform:none}
+  .board{height:auto;min-height:0;grid-template-rows:56px auto 4fr 3fr;grid-template-columns:1fr;padding:6px;gap:6px}
+  .btop .logo{width:56px;font-size:1.5rem}
+  .btop .links nav{display:none}
+  .btop .act{padding:0 20px}
+  .name-tile{height:30svh;padding:18px}
+  .name-tile h1{font-size:22vw}
+  .name-tile .over{top:16px;left:18px;font-size:1.125rem}
+  .photo-tile{aspect-ratio:4/3}
+  .photo-tile.second{aspect-ratio:16/10}
+  .split .dark,.split .lite{font-size:1.125rem;padding:16px;aspect-ratio:1}
 }
 
-/* ---------- intro ---------- */
-.intro{position:relative;padding:clamp(90px,11vw,160px) var(--margin) clamp(80px,9vw,130px);overflow:hidden}
-.intro h2{font-family:var(--serif);font-weight:100;text-transform:uppercase;font-size:clamp(2.9rem,5.6vw,5.4rem);line-height:1.04;letter-spacing:0.01em;max-width:17ch;position:relative;z-index:2}
-.intro h2 .cross{color:var(--accent);white-space:nowrap}
-.intro p{margin-top:38px;font-size:var(--step-lead);line-height:1.45;max-width:34ch;position:relative;z-index:2}
-.intro .big{position:absolute;right:0;top:6%;width:min(44vw,620px);aspect-ratio:4/5;object-fit:cover;z-index:1}
-.intro .small{width:min(300px,44vw);aspect-ratio:9/10;object-fit:cover;margin-top:56px;position:relative;z-index:2}
+/* ---------- intro : statement tiles ---------- */
+.intro{padding:8px}
+.ib{overflow:clip;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:38svh 38svh;gap:8px}
+.ib .ta{grid-column:1/9;grid-row:1/3;background:var(--ink);color:var(--bg);display:flex;align-items:flex-end;padding:20px;overflow:hidden}
+.ib .ta h2{font-size:clamp(64px,9vw,132px);font-weight:500;text-transform:uppercase;line-height:0.86;letter-spacing:-0.03em}
+.ib .tb{grid-column:9/13;grid-row:1/2;background:var(--surface);display:flex;align-items:flex-end;padding:16px;overflow:hidden}
+.ib .tb span{font-size:clamp(64px,8vw,132px);font-weight:500;line-height:0.86;letter-spacing:-0.03em;white-space:nowrap}
+.ib .tc{grid-column:9/13;grid-row:2/3}
+.ib .tc img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.intro .long{display:grid;grid-template-columns:repeat(12,1fr);margin-top:8px}
+.intro .long p{grid-column:7/13;padding:40px 40px 48px 0;font-size:clamp(1.375rem,1.6vw,1.5rem);line-height:1.35;letter-spacing:-0.01em}
 @media (max-width:760px){
-  .intro .big{position:relative;width:75%;margin:34px 0 0 auto;top:0}
-  .intro h2{font-size:clamp(2rem,9vw,3rem)}
-  .intro .small{width:52%;margin-top:28px}
+  .intro{padding:6px}
+  .ib{grid-template-columns:1fr 1fr;grid-template-rows:none;gap:6px}
+  .ib .ta{grid-column:1/3;grid-row:auto;height:46svh;padding:16px}
+  .ib .ta h2{font-size:13vw}
+  .ib .tb{grid-column:1/2;grid-row:auto;aspect-ratio:1}
+  .ib .tb span{font-size:8vw}
+  .ib .tc{grid-column:2/3;grid-row:auto;aspect-ratio:1}
+  .intro .long{display:block;margin-top:6px}
+  .intro .long p{padding:20px 14px 28px;font-size:1.125rem}
 }
 
-/* ---------- services (rows on one axis, margin photographs) ---------- */
-.services{padding:clamp(80px,10vw,150px) var(--margin);background:var(--surface)}
-.services h2{font-size:var(--step-head);font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin-left:35%;max-width:14ch}
-.svc{display:grid;grid-template-columns:35% 1fr 300px;column-gap:34px;align-items:start;margin-top:clamp(64px,7vw,104px)}
-.svc h3{grid-column:2;font-size:clamp(1.7rem,2.6vw,2.7rem);font-weight:600;letter-spacing:-0.015em;line-height:1.1}
-.svc p{grid-column:2;margin-top:14px;font-size:1.0625rem;line-height:1.55;color:var(--muted);max-width:36ch}
-.svc img{grid-column:3;grid-row:1 / span 2;width:100%;object-fit:cover}
-.svc:nth-of-type(odd) img{aspect-ratio:4/5}
-.svc:nth-of-type(even) img{aspect-ratio:3/2}
-.svc .more{grid-column:2;margin-top:16px}
-.svc .more a{color:var(--accent-text);font-weight:600;text-decoration:none}
-.svc .more a:hover{text-decoration:underline;text-underline-offset:5px}
-@media (max-width:900px){.svc{grid-template-columns:1fr 220px}.svc h3,.svc p,.svc .more{grid-column:1}.svc img{grid-column:2}.services h2{margin-left:0}}
-@media (max-width:640px){
-  .svc{display:block;margin-top:56px}
-  .svc img{width:70%;margin-top:20px}
-  .svc:nth-of-type(even) img{margin-left:auto}
-}
-
-/* ---------- showcase band + before/after slider ---------- */
-.showcase{padding:clamp(80px,10vw,150px) 0 0}
-.showcase h2{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:600;letter-spacing:-0.02em;margin:0 var(--margin) 52px 22%}
-.band{display:flex;height:68svh;min-height:420px}
-.panel{position:relative;overflow:hidden;flex-grow:1;transition:flex-grow 500ms var(--ease-inout)}
-.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.panel.p1{flex-grow:5}.panel.p2{flex-grow:2}.panel.p3{flex-grow:3}.panel.p4{flex-grow:2}
-@media (hover:hover) and (pointer:fine){.band:hover .panel{flex-grow:1.4}.band .panel:hover{flex-grow:6}}
-.panel .tag{position:absolute;top:20px;left:20px;z-index:5;color:#fff;font-weight:600;font-size:1.05rem;line-height:1.3;max-width:17ch;background:rgba(6,32,43,0.58);padding:9px 13px;border-radius:8px}
-.ba{position:absolute;inset:0;touch-action:none;cursor:ew-resize}
-.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.ba .after-img{clip-path:inset(0 0 0 var(--pos,50%))}
-.ba .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:#fff;transform:translateX(-50%);z-index:4;pointer-events:none}
-.ba .knob{position:absolute;top:50%;left:var(--pos,50%);transform:translate(-50%,-50%);z-index:4;width:52px;height:52px;border-radius:50%;background:#fff;color:var(--accent-dark);display:flex;align-items:center;justify-content:center;pointer-events:none}
-.ba .lbl{position:absolute;bottom:16px;z-index:4;background:rgba(6,32,43,0.55);color:#fff;font-size:var(--step-small);padding:5px 12px;border-radius:999px;pointer-events:none}
-.ba .lbl.b{left:16px}.ba .lbl.a{right:16px}
-.showcase .caption{margin:20px var(--margin) 0;color:var(--muted);font-size:1rem}
-.showcase input[type=range]{position:absolute;opacity:0;width:1px;height:1px}
-.ba-wrap{position:absolute;inset:0}
+/* ---------- services : rows on the axis ---------- */
+.services{padding:0 var(--margin)}
+.services .stmt{min-height:52svh;display:flex;align-items:center}
+.services .stmt h2{margin-left:42%;font-size:clamp(40px,5vw,80px);font-weight:500;letter-spacing:-0.04em;line-height:0.98;max-width:12ch}
+.srow{margin-left:42%;display:grid;grid-template-columns:minmax(0,36ch) 1fr;column-gap:32px;margin-bottom:112px;align-items:start}
+.srow h3{font-size:clamp(28px,3vw,48px);font-weight:500;letter-spacing:-0.03em;line-height:1.02;margin-bottom:16px}
+.srow p{font-size:1.0625rem;line-height:1.5;max-width:34ch}
+.srow .more{margin-top:18px}
+.srow .more a{font-weight:500;text-decoration:underline;text-underline-offset:5px}
+.srow figure{justify-self:end}
+.srow figure img{width:100%;height:100%;object-fit:cover}
+.srow .w1{width:240px;aspect-ratio:4/5}
+.srow .w2{width:320px;aspect-ratio:3/2}
+.srow .w3{width:180px;aspect-ratio:1}
+.srow .w4{width:300px;aspect-ratio:3/2}
+.srow .w5{width:220px;aspect-ratio:3/4}
 @media (max-width:760px){
-  .showcase h2{margin-left:var(--margin)}
-  .band{display:grid;height:auto;grid-template-columns:64% 36%;grid-template-rows:46svh 38svh}
-  .panel.p1{grid-column:1 / -1}
+  .services .stmt{min-height:50svh}
+  .services .stmt h2{margin-left:0;font-size:9vw}
+  .srow{margin-left:0;display:block;margin-bottom:64px}
+  .srow figure{margin-top:22px}
+  .srow .w1,.srow .w3,.srow .w5{width:70%;margin-left:auto}
+  .srow .w2,.srow .w4{width:100%}
 }
 
-/* ---------- about ---------- */
-.about{padding:clamp(90px,11vw,160px) var(--margin)}
-.about h2{font-size:var(--step-head);font-weight:600;letter-spacing:-0.02em;line-height:1.05}
-.about .lead{margin-top:24px;font-size:var(--step-lead);line-height:1.5;max-width:52ch}
-.about .tiles{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:64px;align-items:start}
-.about .wide{grid-column:1 / 9;position:relative}
-.about .wide img{width:100%;aspect-ratio:16/10;object-fit:cover}
-.about .wide .note{position:absolute;top:0;right:0;width:min(320px,80%);background:var(--bg);padding:20px;font-size:1rem;line-height:1.5}
-.about .tile{grid-column:9 / 13;background:var(--accent);color:#fff;padding:26px;aspect-ratio:auto;min-height:280px;display:flex;flex-direction:column}
-.about .tile svg{width:100%;height:auto}
-.about .tile p{margin-top:auto;font-size:var(--step-small);color:#eef9fc}
-.about .facts{grid-column:9 / 13;display:grid;grid-template-columns:1fr 1fr;gap:18px 22px;margin-top:20px}
-.about .facts dt{font-size:var(--step-small);color:var(--muted)}
-.about .facts dd{font-weight:600;font-size:1.0625rem;margin-top:2px}
-@media (max-width:900px){
-  .about .wide,.about .tile,.about .facts{grid-column:1 / -1}
-  .about .wide .note{position:static;width:100%;padding:18px 0 0}
-}
-
-/* ---------- testimonial ---------- */
-.voices{position:relative;min-height:90svh;display:flex;align-items:flex-end;padding:64px var(--margin);overflow:hidden;background:var(--accent-dark)}
-.voices img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.72)}
-.voices blockquote{position:relative;z-index:2;color:#fff;font-family:var(--serif);font-weight:300;font-size:clamp(1.4rem,2.4vw,2.25rem);line-height:1.3;max-width:34ch}
-.voices figcaption{position:relative;z-index:2;color:#fff;font-size:1rem;margin-left:auto;text-align:right;align-self:flex-end}
-.voices .row{position:relative;z-index:2;display:flex;width:100%;align-items:flex-end;gap:30px;flex-wrap:wrap}
-
-/* ---------- contact ---------- */
-.visit{position:relative;padding:clamp(70px,8vw,110px) var(--margin);background:var(--accent-dark)}
-.visit .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9}
-.visit .card{position:relative;margin-left:auto;width:min(400px,100%);background:var(--bg);border-radius:8px;padding:32px}
-.visit .card h2{font-family:var(--serif);font-weight:300;font-size:1.75rem;line-height:1.15}
-.visit .card address{font-style:normal;margin-top:18px;font-size:1rem;line-height:1.55}
-.visit .hours{margin-top:20px;font-size:1rem}
-.visit .hours .row2{display:flex;justify-content:space-between;padding:5px 0}
-.visit .hours .row2 span:last-child{font-variant-numeric:tabular-nums;font-weight:600}
-.visit .phone{margin-top:16px;font-size:1.125rem;font-weight:600}
-.visit form{margin-top:24px;display:grid;gap:12px}
-.visit label{font-size:var(--step-small);color:var(--muted);display:grid;gap:6px}
-.visit input,.visit select{font:inherit;font-size:1rem;color:var(--ink);padding:12px 14px;border:1.5px solid #c3d5db;border-radius:8px;background:#fff;width:100%}
-.visit input:focus,.visit select:focus{border-color:var(--accent);outline:none}
-.visit .btn{justify-content:center;width:100%;margin-top:6px}
+/* ---------- showcase : one smile across tiles, and it slides ---------- */
+.showcase{padding:12px}
+.ba{--pos:0.5;position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;touch-action:none;cursor:ew-resize}
+.ba .t{position:relative;aspect-ratio:1;overflow:hidden;background:var(--surface)}
+.ba .t .lyr{position:absolute;inset:0;background-image:url(assets/after.webp);background-size:600% 400%;background-position:calc(var(--c)*20%) calc(var(--r)*33.3333%)}
+.ba .t .lyr.base{filter:grayscale(1) sepia(0.35) brightness(0.9) contrast(0.95)}
+.ba .t .lyr.top{clip-path:inset(0 0 0 calc(clamp(0, var(--pos)*6 - var(--c), 1)*100%))}
+.ba .t.txt{display:flex;padding:16px;font-size:1.125rem;line-height:1.3;letter-spacing:-0.01em}
+.ba .t.head{background:var(--ink);color:var(--bg);flex-direction:column}
+.ba .t.head h2{font-size:2.6vw;font-weight:500;letter-spacing:-0.03em;line-height:1.02}
+.ba .t.head span{margin-top:auto;font-size:1rem}
+.ba .t.fact{background:var(--surface);color:var(--ink);align-items:flex-start}
+.ba .t.act{background:var(--paper);align-items:flex-end}
+.ba .t.act a{font-weight:500;text-decoration:underline;text-underline-offset:5px;font-size:1.125rem}
+.ba .grip{position:absolute;top:0;bottom:0;left:calc(var(--pos)*100%);width:2px;background:var(--bg);z-index:6;pointer-events:none}
+.ba .grip i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;font-style:normal;border:2px solid var(--ink)}
+.ba .lbl{position:absolute;bottom:12px;z-index:5;font-size:var(--step-small);font-weight:500;background:rgba(230,219,199,0.9);color:var(--ink);padding:5px 11px;border-radius:999px;pointer-events:none}
+.ba .lbl.l{left:12px;bottom:calc(25% + 2px)}.ba .lbl.r{right:12px;bottom:calc(25% + 2px)}
+.ba input[type=range]{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.showcase .cap{padding:18px 12px 6px;font-size:var(--step-small);color:var(--muted);max-width:62ch}
 @media (max-width:760px){
-  .visit{padding:0 16px 54px}
-  .visit .bgimg{position:relative;height:52svh;opacity:1}
-  .visit .card{margin:-70px 0 0;width:100%}
+  .showcase{padding:6px}
+  .ba{gap:6px}
+  .ba .t.txt{padding:11px;font-size:0.8125rem}
+  .ba .t.head h2{font-size:5.4vw}
+  .ba .t.head span{font-size:0.8125rem}
+  .ba .t.act a{font-size:0.875rem}
 }
 
-/* ---------- cta ---------- */
-.cta .strip{display:flex;height:40svh;min-height:240px}
-.cta .strip img{flex:1;width:33.333%;object-fit:cover}
-.cta .field{background:var(--accent);color:#fff;padding:clamp(56px,7vw,90px) var(--margin);position:relative}
-.cta .field p.big{font-size:clamp(1.5rem,2.4vw,1.9rem);line-height:1.35;max-width:34ch;font-weight:500}
-.cta .field p.big a{color:#fff;text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:6px}
-.cta .field p.small{margin-top:30px;font-size:1rem;color:#eef9fc;max-width:46ch}
-.cta .field img.face{position:absolute;right:var(--margin);bottom:34px;width:132px;aspect-ratio:4/5;object-fit:cover}
+/* ---------- about : side facts, wide paragraph ---------- */
+.about{padding:88px var(--margin) 40px}
+.about .row1{display:grid;grid-template-columns:34% 56%;column-gap:0}
+.about .pairs{display:flex;flex-direction:column;gap:20px;font-size:var(--step-small)}
+.about .pairs dt{color:var(--muted)}
+.about .pairs dd{font-weight:500;margin-top:2px}
+.about .seclabel{font-size:1.5rem;font-weight:500;letter-spacing:-0.02em;margin-bottom:44px}
+.about .leadp{font-size:clamp(20px,1.7vw,26px);line-height:1.35;letter-spacing:-0.01em}
+.about .row2{display:grid;grid-template-columns:34% 260px 260px;column-gap:64px;margin-top:72px}
+.about .row2 .word{font-size:var(--step-small);font-weight:500}
+.about .rec{list-style:none;font-size:var(--step-small);line-height:1.5}
+.about .rec li{display:flex;justify-content:space-between;gap:16px;padding:5px 0}
+.about .rec li span:last-child{color:var(--muted);text-align:right}
 @media (max-width:760px){
-  .cta .strip{display:grid;grid-template-columns:1fr 1fr;height:auto}
-  .cta .strip img:first-child{grid-column:1 / -1;height:34svh;width:100%}
-  .cta .strip img{height:24svh;width:100%}
-  .cta .field img.face{width:88px;bottom:22px}
-  .cta .field p.big{max-width:24ch}
+  .about{padding:72px var(--margin) 24px}
+  .about .row1{display:block}
+  .about .pairs{display:grid;grid-template-columns:1fr 1fr;margin-top:36px;font-size:0.875rem}
+  .about .row2{display:block;margin-top:64px}
+  .about .rec{margin-top:28px;font-size:0.875rem}
 }
 
-/* ---------- footer ---------- */
-footer{background:var(--accent-dark);color:var(--field-ink);padding:70px var(--margin) 40px}
-footer .giant{font-family:var(--serif);font-weight:100;font-size:clamp(4rem,14.5vw,13rem);line-height:0.95;color:#fff;letter-spacing:0.01em}
-footer .cols{display:flex;gap:44px;flex-wrap:wrap;margin-top:44px;font-size:1rem}
-footer .cols a{color:var(--field-ink);text-decoration:none}
-footer .cols a:hover{text-decoration:underline;text-underline-offset:4px}
-footer .fine{margin-top:44px;font-size:var(--step-small);color:#9fc3cf;line-height:1.6;max-width:70ch}
+/* ---------- testimonial : portrait and offset quotation ---------- */
+.voices{padding:88px var(--margin);display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.voices .port{grid-column:2/6}
+.voices .port img{width:100%;height:70svh;object-fit:cover}
+.voices .qwrap{grid-column:7/13;margin-top:120px}
+.voices blockquote{font-size:clamp(1.5rem,2.6vw,2.25rem);font-weight:400;line-height:1.2;letter-spacing:-0.015em;max-width:30ch}
+.voices .who{margin-top:32px;font-size:1rem}
+.voices .who b{font-weight:500}
+.voices .small{grid-column:10/12;margin-top:96px}
+.voices .small img{width:100%;aspect-ratio:1;object-fit:cover}
+@media (max-width:760px){
+  .voices{padding:72px var(--margin);display:block}
+  .voices .port{width:72%}
+  .voices .port img{height:auto;aspect-ratio:3/4}
+  .voices .qwrap{margin-top:32px}
+  .voices blockquote{font-size:1.5rem}
+  .voices .small{width:44%;margin:48px 0 0 auto}
+}
 
-/* ---------- floating actions + chat ---------- */
-.fabs{position:fixed;right:20px;bottom:20px;z-index:80;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
-.fab{width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 160ms var(--ease-out);box-shadow:0 10px 28px rgba(6,32,43,0.28) /* taste-skill-ignore: floating action buttons are real overlays */}
+/* ---------- contact : sentence, portrait, two links + booking form ---------- */
+.visit{padding:110px var(--margin) 120px}
+.visit .band{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.visit .sent{grid-column:1/7;font-size:clamp(1.5rem,2.5vw,2.25rem);line-height:1.15;letter-spacing:-0.02em}
+.visit .ph{grid-column:8/10}
+.visit .ph img{width:100%;aspect-ratio:1;object-fit:cover}
+.visit .ask{grid-column:10/13}
+.visit .ask h2{font-size:1.125rem;font-weight:500;margin-bottom:20px}
+.visit .ask a{display:block;font-size:1.125rem;font-weight:500;text-decoration:underline;text-underline-offset:5px;margin-bottom:12px;width:fit-content}
+.visit .ask .fine{margin-top:20px;font-size:var(--step-small);color:var(--muted);line-height:1.5}
+.visit .formrow{display:grid;grid-template-columns:42% 1fr;margin-top:96px;column-gap:32px}
+.visit .formrow .note{font-size:0.9375rem;color:var(--muted);line-height:1.55;max-width:30ch}
+.visit form{display:grid;gap:18px;max-width:520px}
+.visit label{font-size:var(--step-small);font-weight:500;display:block;margin-bottom:7px}
+.visit input,.visit select{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--muted);border-radius:10px /* taste-skill-ignore: form field outline, forms keep their borders */;padding:13px 15px}
+.visit input:focus,.visit select:focus{border-color:var(--ink);outline:none}
+.visit form .btn{justify-content:center;margin-top:4px}
+@media (max-width:760px){
+  .visit{padding:96px var(--margin) 72px}
+  .visit .band{display:block}
+  .visit .sent{font-size:1.5rem;margin-bottom:36px}
+  .visit .ph{width:96px;float:left;margin-right:18px}
+  .visit .ask{overflow:hidden}
+  .visit .ask .fine{clear:both;padding-top:16px}
+  .visit .formrow{display:block;margin-top:64px}
+  .visit .formrow .note{margin-bottom:26px}
+}
+
+/* ---------- cta : three photographs, then a field ---------- */
+.cta .strip{display:grid;grid-template-columns:1fr 1fr 1fr}
+.cta .strip img{width:100%;height:40svh;object-fit:cover}
+.cta .field{background:var(--ink);color:var(--bg);position:relative;padding:72px var(--margin) 120px;min-height:44svh}
+.cta .field p{font-size:clamp(1.375rem,2.2vw,1.875rem);line-height:1.3;letter-spacing:-0.01em;max-width:24ch}
+.cta .field p a{color:var(--bg);text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:6px}
+.cta .field .small{margin-top:32px;font-size:1rem;line-height:1.55;color:#c9d4f2;max-width:42ch}
+.cta .field .who{position:absolute;right:40px;bottom:40px;width:150px}
+.cta .field .who img{width:100%;aspect-ratio:4/5;object-fit:cover}
+@media (max-width:760px){
+  .cta .strip{grid-template-columns:1fr 1fr}
+  .cta .strip img{height:auto;aspect-ratio:4/3}
+  .cta .strip img:first-child{grid-column:1/3;aspect-ratio:16/10}
+  .cta .field{padding:48px var(--margin) 150px}
+  .cta .field .who{width:96px;right:20px;bottom:24px}
+}
+
+/* ---------- colophon footer ---------- */
+footer{padding:56px var(--margin) 64px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+footer .fbrand{grid-column:1/6;font-size:1.25rem;font-weight:500;letter-spacing:-0.02em}
+footer .flinks{grid-column:7/10;display:flex;flex-direction:column;gap:8px}
+footer .flinks a{text-decoration:none;width:fit-content}
+footer .flinks a:hover{text-decoration:underline;text-underline-offset:4px}
+footer .faddr{grid-column:10/13;font-size:var(--step-small);color:var(--muted);line-height:1.6}
+footer .fine{grid-column:1/13;margin-top:44px;font-size:var(--step-small);color:var(--muted);max-width:78ch;line-height:1.6}
+@media (max-width:760px){ footer{display:block} footer .flinks{margin:28px 0} footer .faddr{margin-top:8px} }
+
+/* ---------- floating buttons + chat ---------- */
+.fabs{position:fixed;right:20px;bottom:20px;z-index:95;display:flex;flex-direction:column;gap:12px}
+.fab{width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 160ms var(--ease-out);box-shadow:0 10px 28px rgba(6,43,138,0.3) /* taste-skill-ignore: floating action buttons are real overlays */}
 .fab:active{transform:scale(0.94)}
-.fab.wa-fab{background:var(--wa)}
-.fab.chat-fab{background:var(--accent)}
-.chat{position:fixed;right:20px;bottom:160px;z-index:90;width:min(360px,calc(100vw - 32px));height:min(500px,calc(100svh - 190px));background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(6,32,43,0.35); /* taste-skill-ignore: chat dialog is a real overlay */ flex-direction:column;overflow:hidden;transform-origin:bottom right;display:none}
+.fab.chat-fab{background:var(--ink);color:var(--bg)}
+.fab.wa-fab{background:var(--wa);color:#06330f}
+.chat{position:fixed;right:20px;bottom:160px;z-index:96;width:min(360px,calc(100vw - 32px));height:min(500px,calc(100svh - 190px));background:#f8f3e6;border-radius:16px;box-shadow:0 24px 60px rgba(6,43,138,0.35); /* taste-skill-ignore: chat dialog is a real overlay */ flex-direction:column;overflow:hidden;transform-origin:bottom right;display:none}
 .chat.open{display:flex;animation:chatIn 220ms var(--ease-out)}
 @keyframes chatIn{from{transform:scale(0.95) translateY(8px);opacity:0}to{transform:none;opacity:1}}
-.chat header{background:var(--accent);color:#fff;padding:15px 18px;display:flex;align-items:center;gap:12px}
-.chat header .t{font-weight:600;font-size:1rem;line-height:1.25}
-.chat header .s{font-size:var(--step-small);color:#eef9fc}
-.chat header button{margin-left:auto;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;line-height:1;padding:4px}
-.chat .msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
-.msg{max-width:85%;padding:11px 14px;border-radius:14px;font-size:0.9375rem;line-height:1.5;white-space:pre-wrap}
-.msg.bot{background:var(--surface);color:var(--ink);border-bottom-left-radius:4px;align-self:flex-start}
-.msg.me{background:var(--accent);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.chat header{background:var(--ink);color:var(--bg);padding:14px 16px;display:flex;align-items:center;gap:10px}
+.chat header .t{font-weight:500;line-height:1.2}
+.chat header .s{font-size:var(--step-small);color:#dbe4fb}
+.chat header button{margin-left:auto;background:none;border:none;color:var(--bg);font-size:1.25rem;cursor:pointer;padding:6px}
+.chat .msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:9px}
+.msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:0.9375rem;line-height:1.45;white-space:pre-wrap}
+.msg.bot{background:#fff;color:var(--ink);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.me{background:var(--ink);color:var(--bg);align-self:flex-end;border-bottom-right-radius:4px}
+.msg[dir=rtl]{text-align:right}
 .cards{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start}
-.cards a{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--accent);color:var(--accent-dark);font-size:var(--step-small);font-weight:600;padding:8px 14px;border-radius:999px;text-decoration:none;transition:transform 140ms var(--ease-out)}
+.cards a{background:#fff;color:var(--ink);border:1px solid var(--ink); /* taste-skill-ignore: chat action cards inside the data-ui dialog */text-decoration:none;font-size:0.875rem;font-weight:500;padding:8px 14px;border-radius:999px}
 .cards a:active{transform:scale(0.96)}
-.chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 10px;background:var(--bg)}
-.chips button{background:#fff;border:1.5px solid #c3d5db;color:var(--ink);font:inherit;font-size:var(--step-small);padding:7px 13px;border-radius:999px;cursor:pointer}
-.chips button:active{transform:scale(0.96)}
+.chat .chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 14px 10px}
+.chat .chips button{background:none;border:1px solid var(--muted); /* taste-skill-ignore: quick chips inside the data-ui dialog */color:var(--ink);font:inherit;font-size:0.8125rem;padding:6px 12px;border-radius:999px;cursor:pointer}
 .chat form{display:flex;gap:8px;padding:12px;background:var(--surface)}
-.chat form input{flex:1;font:inherit;font-size:0.9375rem;padding:11px 14px;border:1.5px solid #c3d5db;border-radius:999px;min-width:0}
-.chat form input:focus{border-color:var(--accent);outline:none}
-.chat form button{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:0 20px;font:inherit;font-weight:600;cursor:pointer}
+.chat form input{flex:1;font:inherit;font-size:0.9375rem;padding:11px 13px;border:1px solid transparent;border-radius:999px;background:#fff;color:var(--ink);min-width:0}
+.chat form input:focus{border-color:var(--ink);outline:none}
+.chat form button{background:var(--ink);color:var(--bg);border:none;font:inherit;font-weight:500;padding:11px 18px;border-radius:999px;cursor:pointer}
 .chat form button:active{transform:scale(0.96)}
 @media (max-width:760px){.chat{bottom:150px}}
-@media (max-width:760px){.svc figure{margin:0}}
+
+/* ---------- motion layer ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .rv{opacity:0;transform:translateY(26px);transition:opacity 700ms var(--ease-out),transform 700ms var(--ease-out)}
+  .rv.in{opacity:1;transform:none}
+  .board .tile{animation:tileIn 800ms var(--ease-out) both}
+  .board .tile:nth-child(2){animation-delay:80ms}
+  .board .tile:nth-child(3){animation-delay:160ms}
+  @keyframes tileIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .ba{transition:--pos 1.1s var(--ease-out)}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important}
+}
+@media (max-width:1100px){ .srow{display:block} .srow figure{margin-top:22px} .srow .w1{width:200px} .srow .w2{width:280px} .srow .w3{width:160px} .srow .w4{width:280px} .srow .w5{width:190px} }
+@media (max-width:760px){ .srow .w1,.srow .w3,.srow .w5{width:70%} .srow .w2,.srow .w4{width:100%} }
 </style>
 </head>
 <body>
 
 <header class="topbar" id="topbar">
   <a class="wordmark" href="#accueil">Cabinet dentaire Soualhi</a>
-  <nav aria-label="Navigation principale">
+  <nav>
     <a href="#soins">Soins</a>
     <a href="#resultats">Résultats</a>
     <a href="#cabinet">Le cabinet</a>
@@ -282,258 +311,339 @@ footer .fine{margin-top:44px;font-size:var(--step-small);color:#9fc3cf;line-heig
   <a class="btn" href="#visite">Réserver</a>
 </header>
 
-<section class="hero" id="accueil">
-  <div class="ph"><img src="assets/room.webp" alt="La salle de soins du cabinet Soualhi, ouverte sur Casablanca et l'océan" fetchpriority="high"></div>
-  <div class="rail">
-    <h1>Cabinet dentaire <span>Soualhi</span></h1>
-    <p class="sentence">Le sourire, dessiné avec précision à Casablanca.</p>
+<!-- HERO · two-by-two board -->
+<section class="board" id="accueil">
+  <div class="btop">
+    <div class="logo" aria-hidden="true">S.</div>
     <div class="links">
-      <a href="#soins">Soins</a>
-      <a href="#resultats">Résultats</a>
-      <a href="#cabinet">Le cabinet</a>
-      <a class="btn" href="#visite">Réserver</a>
+      <nav>
+        <a href="#soins">Soins</a>
+        <a href="#resultats">Résultats</a>
+        <a href="#cabinet">Le cabinet</a>
+        <a href="#visite">Contact</a>
+      </nav>
     </div>
+    <a class="act" href="#visite">Réserver</a>
   </div>
-  <div class="mobcta">
-    <p>Le sourire, dessiné avec précision à Casablanca.</p>
-    <a class="btn wa" href="#visite">Réserver sur WhatsApp</a>
+  <div class="tile name-tile">
+    <p class="over">Cabinet dentaire — Casablanca</p>
+    <h1>Soualhi</h1>
   </div>
-  <a class="scrolldown" href="#intro">Découvrir le cabinet
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
-  </a>
-  <p class="corner">Boulevard d'Anfa, Casablanca</p>
+  <div class="tile photo-tile">
+    <img src="assets/room2.webp" alt="La salle de soins du cabinet, fauteuil bleu cobalt face aux toits de Casablanca" fetchpriority="high">
+  </div>
+  <div class="tile photo-tile second">
+    <img src="assets/treatment.webp" alt="Un soin dentaire en cours, en gros plan" loading="lazy">
+  </div>
+  <div class="split">
+    <div class="tile dark">Le sourire, dessiné avec précision à Casablanca.<span class="ds">Implants · Orthodontie invisible · Esthétique</span></div>
+    <div class="tile lite">Urgences reçues le jour même.<a href="#visite">Prendre rendez-vous</a></div>
+  </div>
 </section>
 
+<!-- INTRO · statement tiles -->
 <section class="intro" id="intro">
-  <div data-reveal>
-    <h2>Le sourire,<br><span class="cross">notre signature</span></h2>
-    <p>À Casablanca, le Dr Soualhi réunit technologie de pointe et précision d'atelier, pour des soins sereins et des sourires qui durent.</p>
+  <div class="ib">
+    <div class="ta"><h2>Sourires qui durent</h2></div>
+    <div class="tb"><span>Casablanca</span></div>
+    <div class="tc"><img src="assets/doctor.webp" alt="Le Dr Soualhi, chirurgien-dentiste" loading="lazy"></div>
   </div>
-  <img class="big" src="assets/doctor.webp" alt="Le Dr Soualhi, chirurgien-dentiste à Casablanca" loading="lazy" width="620" height="775">
-  <img class="small" src="assets/implant.webp" alt="Implant dentaire en titane et sa couronne en céramique" loading="lazy" width="300" height="333">
+  <div class="long">
+    <p>Le cabinet du Dr Soualhi réunit, boulevard d'Anfa, une technologie de pointe et une précision d'atelier. Chaque traitement commence par un examen complet et un plan expliqué sans détour : ce qui sera fait, en combien de séances, et à quel prix, avant de commencer. Implants, orthodontie invisible, esthétique du sourire : les soins sont suivis personnellement, du premier examen au contrôle final, pour des résultats qui tiennent dans le temps.</p>
+  </div>
 </section>
 
+<!-- SERVICES · rows on the axis -->
 <section class="services" id="soins">
-  <div data-reveal><h2>Nos soins, en précision</h2></div>
+  <div class="stmt"><h2>Cinq soins, une exigence</h2></div>
 
-  <article class="svc" data-reveal>
-    <h3>Implants dentaires</h3>
-    <p>Remplacer une dent à la racine, sans toucher aux voisines. Titane biocompatible, pose guidée par imagerie 3D, un résultat qui se confond avec le naturel.</p>
-    <p class="more"><a href="#visite" data-service="Implants dentaires">Réserver ce soin</a></p>
-    <img src="assets/implant.webp" alt="Implant dentaire en titane avec couronne céramique, à côté d'un modèle de dentition" loading="lazy" width="300" height="375">
+  <article class="srow rv">
+    <div>
+      <h3>Implants dentaires</h3>
+      <p>Remplacer une dent à la racine, sans toucher aux voisines. Titane biocompatible, pose guidée par imagerie 3D, un résultat qui se confond avec le naturel.</p>
+      <p class="more"><a href="#visite" data-service="Implants dentaires">Réserver ce soin</a></p>
+    </div>
+    <figure class="w1"><img src="assets/implant.webp" alt="Un implant dentaire en titane et sa couronne en céramique" loading="lazy"></figure>
   </article>
 
-  <article class="svc" data-reveal>
-    <h3>Orthodontie invisible</h3>
-    <p>Aligner les dents sans bagues visibles. Les aligneurs transparents se retirent pour manger et se portent en toute discrétion, au travail comme en soirée.</p>
-    <p class="more"><a href="#visite" data-service="Orthodontie invisible">Réserver ce soin</a></p>
-    <img src="assets/patient.webp" alt="Patient souriant après un traitement d'orthodontie invisible" loading="lazy" width="300" height="200">
+  <article class="srow rv">
+    <div>
+      <h3>Orthodontie invisible</h3>
+      <p>Aligner les dents sans bagues visibles. Les aligneurs transparents se retirent pour manger et se portent en toute discrétion, au travail comme en soirée.</p>
+      <p class="more"><a href="#visite" data-service="Orthodontie invisible">Réserver ce soin</a></p>
+    </div>
+    <figure class="w2"><img src="assets/patient.webp" alt="Le sourire aligné d'un patient du cabinet" loading="lazy"></figure>
   </article>
 
-  <article class="svc" data-reveal>
-    <h3>Blanchiment et esthétique</h3>
-    <p>Éclaircir le sourire en une séance, ou le redessiner par facettes céramiques fines. La teinte est choisie avec vous, à la lumière du jour, jamais au hasard.</p>
-    <p class="more"><a href="#visite" data-service="Blanchiment et esthétique">Réserver ce soin</a></p>
-    <img src="assets/after.webp" alt="Sourire éclatant après un blanchiment dentaire" loading="lazy" width="300" height="375">
+  <article class="srow rv">
+    <div>
+      <h3>Blanchiment et esthétique</h3>
+      <p>Éclaircir le sourire en une séance, ou le redessiner par facettes céramiques fines. La teinte est choisie avec vous, à la lumière du jour, jamais au hasard.</p>
+      <p class="more"><a href="#visite" data-service="Blanchiment et esthétique">Réserver ce soin</a></p>
+    </div>
+    <figure class="w3"><img src="assets/after.webp" alt="Un sourire éclatant après un blanchiment" loading="lazy"></figure>
   </article>
 
-  <article class="svc" data-reveal>
-    <h3>Prothèses et couronnes</h3>
-    <p>Couronnes et bridges en céramique haute résistance, ajustés avec une précision extrême. La forme suit votre visage, jamais un modèle standard.</p>
-    <p class="more"><a href="#visite" data-service="Prothèses et couronnes">Réserver ce soin</a></p>
-    <img src="assets/treatment.webp" alt="Examen dentaire minutieux au cabinet Soualhi" loading="lazy" width="300" height="200">
+  <article class="srow rv">
+    <div>
+      <h3>Prothèses et couronnes</h3>
+      <p>Couronnes et bridges en céramique haute résistance, ajustés avec une précision extrême. La forme suit votre visage, jamais un modèle standard.</p>
+      <p class="more"><a href="#visite" data-service="Prothèses et couronnes">Réserver ce soin</a></p>
+    </div>
+    <figure class="w4"><img src="assets/treatment.webp" alt="La pose d'une couronne, en gros plan" loading="lazy"></figure>
   </article>
 
-  <article class="svc" data-reveal>
-    <h3>Soins et urgences</h3>
-    <p>Caries, dévitalisations et douleurs prises en charge avec douceur. Une urgence dentaire est reçue le jour même, sans rendez-vous préalable.</p>
-    <p class="more"><a href="#visite" data-service="Urgence dentaire">Signaler une urgence</a></p>
-    <img src="assets/room.webp" alt="Fauteuil de soins moderne du cabinet, face à la lumière" loading="lazy" width="300" height="375">
+  <article class="srow rv">
+    <div>
+      <h3>Soins et urgences</h3>
+      <p>Caries, dévitalisations et douleurs prises en charge avec douceur. Une urgence dentaire est reçue le jour même, sans rendez-vous préalable.</p>
+      <p class="more"><a href="#visite" data-service="Soins et urgences">Signaler une urgence</a></p>
+    </div>
+    <figure class="w5"><img src="assets/room2.webp" alt="La salle de soins du cabinet, prête à accueillir" loading="lazy"></figure>
   </article>
 </section>
 
+<!-- SHOWCASE · one smile across tiles, and it slides -->
 <section class="showcase" id="resultats">
-  <div data-reveal><h2>Des résultats qui parlent</h2></div>
-  <div class="band">
-    <div class="panel p1">
-      <p class="tag">Avant, après : faites glisser</p>
-      <div class="ba-wrap">
-        <div class="ba" id="ba" role="img" aria-label="Comparaison avant et après un traitement esthétique du sourire, à faire glisser">
-          <img src="assets/before.webp" alt="" width="1200" height="800">
-          <img class="after-img" src="assets/after.webp" alt="" width="1200" height="800">
-          <span class="lbl b">Avant</span><span class="lbl a">Après</span>
-          <div class="handle"></div>
-          <div class="knob"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div>
-        </div>
-        <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Position du curseur avant après">
-      </div>
-    </div>
-    <div class="panel p2"><img src="assets/patient.webp" alt="Sourire naturel et aligné d'un patient du cabinet" loading="lazy" width="500" height="800"></div>
-    <div class="panel p3"><img src="assets/treatment.webp" alt="Soin dentaire en cours, gestes précis et doux" loading="lazy" width="700" height="800"></div>
-    <div class="panel p4"><img src="assets/room.webp" alt="Le cabinet vu côté fenêtre, lumière du matin" loading="lazy" width="500" height="800"></div>
+  <div class="ba" id="ba" role="group" aria-label="Avant après : faites glisser pour comparer">
+    <img class="ba-fallback" src="assets/after.webp" alt="Un sourire éclatant, photo d'illustration" style="width:100%;grid-column:1/-1">
+    <span class="lbl l">Avant</span>
+    <span class="lbl r">Après</span>
+    <div class="grip" aria-hidden="true"><i>&#8596;</i></div>
+    <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Position de la comparaison avant après">
   </div>
-  <p class="caption">Photos d'illustration, en attendant les cas réels du cabinet. Chaque sourire traité ici raconte la même exigence.</p>
+  <p class="cap">Planche d'illustration : le glissement fait passer la même image du terne à la couleur, en attendant les cas réels du cabinet, qui la remplaceront dès leur accord.</p>
 </section>
 
+<!-- ABOUT · side facts, wide paragraph -->
 <section class="about" id="cabinet">
-  <div data-reveal>
-    <h2>Le Dr Soualhi</h2>
-    <p class="lead">Chirurgien-dentiste formé aux techniques d'implantologie et d'esthétique du sourire, le Dr Soualhi a fait de la précision son école : chaque plan de traitement est expliqué, chiffré et suivi personnellement, du premier examen au contrôle final.</p>
-  </div>
-  <div class="tiles">
-    <div class="wide">
-      <img src="assets/room.webp" alt="La salle de soins du cabinet Soualhi et sa vue sur Casablanca" loading="lazy" width="1000" height="625">
-      <p class="note">Un cabinet pensé comme un lieu de calme : lumière naturelle, plateau technique de dernière génération et stérilisation aux normes internationales.</p>
-    </div>
-    <div class="tile" aria-hidden="true">
-      <svg viewBox="0 0 300 190" fill="none" aria-hidden="true">
-        <path d="M10 150 C60 120 70 90 110 78 C150 66 170 84 210 60 C240 42 262 40 290 22 L290 190 L10 190 Z" fill="#ffffff" opacity="0.16"/>
-        <path d="M10 150 C60 120 70 90 110 78 C150 66 170 84 210 60 C240 42 262 40 290 22" stroke="#ffffff" stroke-width="2.5"/>
-        <circle cx="196" cy="66" r="7" fill="#ffffff"/>
-        <circle cx="196" cy="66" r="15" stroke="#ffffff" stroke-width="2"/>
-      </svg>
-      <p>Sur le boulevard d'Anfa, à quelques minutes de la corniche et de l'océan que l'on aperçoit depuis la salle de soins.</p>
-    </div>
-    <dl class="facts">
+  <h2 class="seclabel">Le cabinet</h2>
+  <div class="row1">
+    <dl class="pairs">
       <div><dt>Ville</dt><dd>Casablanca</dd></div>
       <div><dt>Langues</dt><dd>Français, arabe, anglais</dd></div>
       <div><dt>Rendez-vous</dt><dd>WhatsApp, réponse rapide</dd></div>
-      <div><dt>Urgences</dt><dd>Reçues le jour même</dd></div>
     </dl>
+    <p class="leadp rv">Chirurgien-dentiste formé aux techniques d'implantologie et d'esthétique du sourire, le Dr Soualhi a fait de la précision son école : chaque plan de traitement est expliqué, chiffré et suivi personnellement, du premier examen au contrôle final.</p>
+  </div>
+  <div class="row2">
+    <p class="word">La pratique</p>
+    <ul class="rec">
+      <li><span>Implants dentaires</span><span>imagerie 3D</span></li>
+      <li><span>Orthodontie invisible</span><span>aligneurs transparents</span></li>
+      <li><span>Blanchiment</span><span>une séance</span></li>
+      <li><span>Prothèses et couronnes</span><span>céramique</span></li>
+      <li><span>Soins conservateurs</span><span>en douceur</span></li>
+      <li><span>Urgences</span><span>le jour même</span></li>
+    </ul>
+    <ul class="rec">
+      <li><span>Devis transparent</span><span>avant tout soin</span></li>
+      <li><span>Stérilisation</span><span>normes internationales</span></li>
+      <li><span>Suivi personnalisé</span><span>par le Dr Soualhi</span></li>
+      <li><span>Accueil</span><span>trois langues</span></li>
+      <li><span>Adresse</span><span>boulevard d'Anfa</span></li>
+      <li><span>Réponse WhatsApp</span><span>le jour même</span></li>
+    </ul>
   </div>
 </section>
 
+<!-- TESTIMONIAL · portrait and offset quotation -->
 <section class="voices">
-  <img class="bg" src="assets/patient.webp" alt="" loading="lazy" width="1200" height="800">
-  <div class="row">
-    <blockquote>« Je suis entré avec une appréhension, je suis ressorti avec un sourire tout neuf. »</blockquote>
-    <figcaption>Karim B.<br>Patient du cabinet</figcaption>
+  <div class="port rv"><img src="assets/patient.webp" alt="Portrait d'un patient du cabinet, souriant" loading="lazy"></div>
+  <div class="qwrap rv">
+    <blockquote>&laquo; Je suis entré avec une appréhension, je suis ressorti avec un sourire tout neuf. &raquo;</blockquote>
+    <p class="who"><b>Karim B.</b><br>Patient du cabinet</p>
   </div>
+  <div class="small rv"><img src="assets/room2.webp" alt="La salle de soins dont parle le patient" loading="lazy"></div>
 </section>
 
+<!-- CONTACT · sentence, portrait, two links -->
 <section class="visit" id="visite">
-  <img class="bgimg" src="assets/room.webp" alt="" loading="lazy" width="1400" height="900">
-  <div class="card">
-    <h2>Nous rendre visite</h2>
-    <address>128, boulevard d'Anfa<br>20250 Casablanca — Maroc</address>
-    <div class="hours">
-      <div class="row2"><span>Lundi à vendredi</span><span>9:00 – 19:00</span></div>
-      <div class="row2"><span>Samedi</span><span>9:00 – 14:00</span></div>
-      <div class="row2"><span>Dimanche</span><span>Fermé</span></div>
+  <div class="band">
+    <p class="sent rv">Pour un premier examen, une douleur ou un sourire à redessiner, écrivez-nous : la réponse part le jour même.</p>
+    <div class="ph rv"><img src="assets/doctor.webp" alt="Le Dr Soualhi" loading="lazy"></div>
+    <div class="ask rv">
+      <h2>Un rendez-vous ?</h2>
+      <a href="https://wa.me/212600000000" target="_blank" rel="noopener">WhatsApp du cabinet</a>
+      <a href="tel:+212600000000">Appeler le cabinet</a>
+      <p class="fine">128, boulevard d'Anfa, Casablanca<br>Lundi à vendredi 9:00 – 19:00 · Samedi 9:00 – 14:00</p>
     </div>
-    <p class="phone">+212 6 00 00 00 00</p>
-    <form id="bookForm">
-      <label>Votre nom<input type="text" id="fName" autocomplete="name" placeholder="Nom complet" required></label>
-      <label>Soin souhaité
+  </div>
+  <div class="formrow">
+    <p class="note rv">Le formulaire, si vous préférez : votre demande part sur WhatsApp, sans compte à créer et sans engagement.</p>
+    <form id="bookForm" class="rv">
+      <div>
+        <label for="fName">Votre nom</label>
+        <input id="fName" type="text" autocomplete="name" placeholder="Nom complet" required>
+      </div>
+      <div>
+        <label for="fService">Soin souhaité</label>
         <select id="fService">
           <option>Consultation</option>
           <option>Implants dentaires</option>
           <option>Orthodontie invisible</option>
           <option>Blanchiment et esthétique</option>
           <option>Prothèses et couronnes</option>
-          <option>Urgence dentaire</option>
+          <option>Soins et urgences</option>
         </select>
-      </label>
-      <label>Jour préféré<input type="date" id="fDate"></label>
-      <button class="btn wa" type="submit">Réserver sur WhatsApp</button>
+      </div>
+      <div>
+        <label for="fDate">Jour préféré</label>
+        <input id="fDate" type="date">
+      </div>
+      <button class="btn btn-wa" type="submit">Réserver sur WhatsApp</button>
     </form>
   </div>
 </section>
 
+<!-- CTA · three photographs, then a field -->
 <section class="cta">
-  <div class="strip" aria-hidden="true">
-    <img src="assets/doctor.webp" alt="" loading="lazy" width="600" height="400">
-    <img src="assets/implant.webp" alt="" loading="lazy" width="600" height="400">
-    <img src="assets/patient.webp" alt="" loading="lazy" width="600" height="400">
+  <div class="strip">
+    <img src="assets/room2.webp" alt="La salle de soins du cabinet" loading="lazy">
+    <img src="assets/treatment.webp" alt="Un soin en cours au cabinet" loading="lazy">
+    <img src="assets/patient.webp" alt="Le sourire d'un patient du cabinet" loading="lazy">
   </div>
   <div class="field">
-    <p class="big">Votre plus beau sourire commence par <a href="https://wa.me/212600000000?text=Bonjour%20Cabinet%20Soualhi%2C%20je%20souhaite%20un%20rendez-vous." target="_blank" rel="noopener">un simple message</a>.</p>
+    <p>Votre plus beau sourire commence par <a href="https://wa.me/212600000000" target="_blank" rel="noopener">un simple message</a>.</p>
     <p class="small">Écrivez-nous sur WhatsApp : nous répondons pendant les horaires d'ouverture et nous vous proposons le premier créneau disponible.</p>
-    <img class="face" src="assets/doctor.webp" alt="Le Dr Soualhi, la personne qui vous répondra" loading="lazy" width="132" height="165">
+    <div class="who"><img src="assets/doctor.webp" alt="Le Dr Soualhi, qui vous répondra" loading="lazy"></div>
   </div>
 </section>
 
+<!-- COLOPHON -->
 <footer>
-  <p class="giant">Soualhi</p>
-  <div class="cols">
-    <nav aria-label="Pied de page">
-      <a href="#soins">Soins</a> · <a href="#resultats">Résultats</a> · <a href="#cabinet">Le cabinet</a> · <a href="#visite">Réserver</a>
-    </nav>
-    <p>128, boulevard d'Anfa, Casablanca · +212 6 00 00 00 00</p>
-    <p><a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">Facebook</a></p>
-  </div>
-  <p class="fine">Maquette d'interface réalisée pour le Cabinet dentaire Soualhi. Le numéro de téléphone, l'adresse exacte, les horaires et le témoignage sont des exemples à confirmer avant mise en ligne ; les photographies sont des illustrations générées pour cette maquette, en attendant les photos réelles du cabinet et de ses patients.</p>
+  <p class="fbrand">Cabinet dentaire Soualhi</p>
+  <nav class="flinks">
+    <a href="#soins">Soins</a>
+    <a href="#resultats">Résultats</a>
+    <a href="#cabinet">Le cabinet</a>
+    <a href="#visite">Réserver</a>
+  </nav>
+  <p class="faddr">128, boulevard d'Anfa<br>Casablanca — Maroc<br>+212 6 00 00 00 00</p>
+  <p class="fine">Maquette d'interface réalisée pour le Cabinet dentaire Soualhi. Le numéro de téléphone, l'adresse exacte, les horaires et le témoignage sont des exemples à confirmer avant mise en ligne ; les photographies sont des illustrations générées, en attendant les photos réelles du cabinet et de ses patients.</p>
 </footer>
 
+<!-- FLOATING + CHAT -->
 <div class="fabs">
-  <button class="fab chat-fab" id="chatOpen" aria-label="Ouvrir l'assistant du cabinet" aria-haspopup="dialog">
-    <svg width="30" height="30" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#ffffff"/><circle cx="17.5" cy="21" r="2.6" fill="#0e7c9b"/><circle cx="30.5" cy="21" r="2.6" fill="#0e7c9b"/><path d="M15 29.5c2.8 3.6 6 5.2 9 5.2s6.2-1.6 9-5.2" stroke="#0e7c9b" stroke-width="2.6" stroke-linecap="round"/></svg>
+  <button class="fab chat-fab" id="chatOpen" aria-label="Ouvrir l'assistant du cabinet">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#e6dbc7"/><circle cx="8.6" cy="10.2" r="1.5" fill="#062b8a"/><circle cx="15.4" cy="10.2" r="1.5" fill="#062b8a"/><path d="M7 14.2c1.4 1.9 3.1 2.8 5 2.8s3.6-.9 5-2.8" stroke="#062b8a" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
   </button>
-  <a class="fab wa-fab" href="https://wa.me/212600000000?text=Bonjour%20Cabinet%20Soualhi%2C%20je%20souhaite%20un%20rendez-vous." target="_blank" rel="noopener" aria-label="Écrire au cabinet sur WhatsApp">
-    <svg width="30" height="30" viewBox="0 0 32 32" fill="#0b3520" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.7 29l7.3-1.5c1.2.7 2.6 1 4 1 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm5.9 16.1c-.2.6-1.4 1.3-1.9 1.3-.5.1-1.1.2-3.7-.8-3.1-1.2-5.1-4.4-5.3-4.6-.1-.2-1.3-1.7-1.3-3.2s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.5 0 .1 0 .7-.2 1.2z"/></svg>
+  <a class="fab wa-fab" href="https://wa.me/212600000000" target="_blank" rel="noopener" aria-label="Écrire au cabinet sur WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.2.3 0 .5.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.1z"/></svg>
   </a>
 </div>
 
-<div class="chat" id="chat" role="dialog" aria-label="Assistant du cabinet Soualhi" data-ui>
+<aside class="chat" id="chat" data-ui aria-label="Assistant du cabinet">
   <header>
-    <svg width="34" height="34" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#ffffff"/><circle cx="17.5" cy="21" r="2.6" fill="#0e7c9b"/><circle cx="30.5" cy="21" r="2.6" fill="#0e7c9b"/><path d="M15 29.5c2.8 3.6 6 5.2 9 5.2s6.2-1.6 9-5.2" stroke="#0e7c9b" stroke-width="2.6" stroke-linecap="round"/></svg>
-    <div><p class="t">Assistant Soualhi</p><p class="s">Réponse immédiate, 24h/24</p></div>
-    <button id="chatClose" aria-label="Fermer l'assistant">×</button>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#e6dbc7"/><circle cx="8.6" cy="10.2" r="1.5" fill="#062b8a"/><circle cx="15.4" cy="10.2" r="1.5" fill="#062b8a"/><path d="M7 14.2c1.4 1.9 3.1 2.8 5 2.8s3.6-.9 5-2.8" stroke="#062b8a" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+    <div>
+      <div class="t">Assistant Soualhi</div>
+      <div class="s">Réponse immédiate, 24h/24</div>
+    </div>
+    <button id="chatClose" aria-label="Fermer l'assistant">&times;</button>
   </header>
   <div class="msgs" id="msgs"></div>
   <div class="chips" id="chips">
     <button type="button" data-q="Quels sont vos horaires ?">Horaires</button>
     <button type="button" data-q="Où se trouve le cabinet ?">Adresse</button>
-    <button type="button" data-q="Je veux un rendez-vous">Rendez-vous</button>
+    <button type="button" data-q="Je veux prendre rendez-vous">Rendez-vous</button>
     <button type="button" data-q="Quels sont vos prix ?">Prix</button>
   </div>
-  <form id="chatForm">
-    <input type="text" id="chatInput" placeholder="Écrivez votre question…" aria-label="Votre question" autocomplete="off">
+  <form id="chatForm" data-ui>
+    <input id="chatInput" type="text" placeholder="Écrivez votre question..." autocomplete="off" aria-label="Votre question">
     <button type="submit">Envoyer</button>
   </form>
-</div>
-
+</aside>
 <script>
 (function(){
   "use strict";
-  /* docked header once the hero rail has scrolled away */
-  var topbar=document.getElementById('topbar'), hero=document.querySelector('.hero');
-  function onScroll(){ if(hero.getBoundingClientRect().bottom<72){topbar.classList.add('show');}else{topbar.classList.remove('show');} }
-  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var WA='212600000000';
 
-  /* staggered section entrances */
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.15});
-  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
+  /* docked header */
+  var topbar=document.getElementById('topbar'), hero=document.querySelector('.board');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ topbar.classList.toggle('show', !e[0].isIntersecting); },{rootMargin:'-70px 0px 0px 0px'}).observe(hero);
+  }
 
-  /* before / after slider (clip-path, pointer capture, multi-touch safe) */
-  var ba=document.getElementById('ba'), range=document.getElementById('baRange'), activeId=null;
-  function setPos(pct){ pct=Math.max(2,Math.min(98,pct)); ba.style.setProperty('--pos',pct+'%'); range.value=Math.round(pct); }
-  function fromEvent(e){ var r=ba.getBoundingClientRect(); setPos((e.clientX-r.left)/r.width*100); }
-  ba.addEventListener('pointerdown',function(e){ if(activeId!==null)return; activeId=e.pointerId; ba.setPointerCapture(activeId); fromEvent(e); });
-  ba.addEventListener('pointermove',function(e){ if(e.pointerId===activeId) fromEvent(e); });
-  function endDrag(e){ if(e.pointerId===activeId) activeId=null; }
-  ba.addEventListener('pointerup',endDrag); ba.addEventListener('pointercancel',endDrag);
-  range.addEventListener('input',function(){ ba.style.setProperty('--pos',range.value+'%'); });
+  /* showcase board : one smile across tiles, and it slides */
+  var ba=document.getElementById('ba'), range=document.getElementById('baRange');
+  var FACTS={
+    desk:{ '3,1':'Casablanca, boulevard d\u2019Anfa', '5,2':'Réponse rapide sur WhatsApp', '2,3':'Urgences reçues le jour même' },
+    mob:{ '2,0':'Casablanca', '1,2':'Urgences le jour même' }
+  };
+  function buildBoard(mob){
+    ba.querySelectorAll('.t').forEach(function(n){ n.remove(); });
+    var fb=ba.querySelector('.ba-fallback'); if(fb) fb.remove();
+    var cols=mob?3:6, rows=4, cfg=mob?'mob':'desk';
+    ba.style.gridTemplateColumns='repeat('+cols+',1fr)';
+    for(var r=0;r<rows;r++) for(var c=0;c<cols;c++){
+      var key=c+','+r, t=document.createElement('div');
+      if(!mob && c===0 && r===0 || mob && r===0 && c<2){
+        if(mob && c===1) continue;
+        t.className='t txt head'; if(mob) t.style.gridColumn='1/3';
+        t.innerHTML='<h2>Avant, après</h2><span>faites glisser</span>';
+      } else if(FACTS[cfg][key]){
+        t.className='t txt fact'; t.textContent=FACTS[cfg][key];
+      } else if(!mob && c===0 && r===3 || mob && c===2 && r===3){
+        t.className='t txt act'; t.innerHTML='<a href="#visite">Réserver</a>';
+      } else {
+        t.className='t';
+        var YS=[14.4,34.1,53.9,73.6];
+        var bs=(cols*100)+'% 606%', bp=(cols>1? c/(cols-1)*100:0)+'% '+YS[r]+'%';
+        t.innerHTML='<div class="lyr base" style="background-size:'+bs+';background-position:'+bp+'"></div><div class="lyr top" style="background-size:'+bs+';background-position:'+bp+'"></div>';
+        t.style.setProperty('--c',c); t.style.setProperty('--r',r);
+        t.querySelector('.top').style.clipPath='inset(0 0 0 calc(clamp(0, var(--pos)*'+cols+' - '+c+', 1)*100%))';
+      }
+      ba.insertBefore(t, ba.querySelector('.lbl'));
+    }
+  }
+  var mq=window.matchMedia('(max-width:760px)');
+  buildBoard(mq.matches);
+  if(mq.addEventListener) mq.addEventListener('change', function(e){ buildBoard(e.matches); });
 
-  /* service preselect from "Réserver ce soin" links */
+  var userSet=false;
+  function setPos(f){ userSet=true; f=Math.max(0,Math.min(1,f)); ba.style.setProperty('--pos',f); range.value=Math.round(f*100); }
+  var dragging=false;
+  function fromEvent(e){ var r=ba.getBoundingClientRect(); setPos((e.clientX-r.left)/r.width); }
+  ba.addEventListener('pointerdown', function(e){ if(e.target.closest('a')) return; dragging=true; ba.setPointerCapture(e.pointerId); fromEvent(e); });
+  ba.addEventListener('pointermove', function(e){ if(dragging) fromEvent(e); });
+  ['pointerup','pointercancel'].forEach(function(ev){ ba.addEventListener(ev, function(){ dragging=false; }); });
+  range.addEventListener('input', function(){ setPos(range.value/100); });
+
+  /* shutter : the colour sweeps in once, when the board arrives */
+  if('IntersectionObserver' in window){
+    var swept=false;
+    new IntersectionObserver(function(e,obs){
+      if(e[0].isIntersecting && !swept){ swept=true; obs.disconnect();
+        if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var t0=null, from=0.12, to=0.5;
+        function step(ts){ if(userSet) return; if(!t0) t0=ts; var k=Math.min(1,(ts-t0)/1100); var ease=1-Math.pow(1-k,3); ba.style.setProperty('--pos', from+(to-from)*ease); if(k<1) requestAnimationFrame(step); else range.value=50; }
+        requestAnimationFrame(step);
+      }
+    },{threshold:0.35}).observe(ba);
+  }
+
+  /* section entrances */
+  var rvItems=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:0.12});
+    rvItems.forEach(function(el,i){ el.style.transitionDelay=(i%3)*70+'ms'; io.observe(el); });
+  } else { rvItems.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* service preselect + booking form */
   var select=document.getElementById('fService');
   document.querySelectorAll('[data-service]').forEach(function(a){
-    a.addEventListener('click',function(){ select.value=a.getAttribute('data-service'); });
+    a.addEventListener('click', function(){ select.value=a.getAttribute('data-service'); });
   });
-
-  /* booking form -> WhatsApp prefilled message */
-  var WA='212600000000';
-  document.getElementById('bookForm').addEventListener('submit',function(ev){
+  document.getElementById('bookForm').addEventListener('submit', function(ev){
     ev.preventDefault();
     var name=document.getElementById('fName').value.trim();
     var date=document.getElementById('fDate').value;
-    var when='';
-    if(date){ var d=new Date(date+'T12:00:00'); when=' Jour préféré : '+d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})+'.'; }
-    var text='Bonjour Cabinet Soualhi, je suis '+name+'. Je souhaite un rendez-vous pour : '+select.value+'.'+when;
-    open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank');
+    var msg='Bonjour Cabinet Soualhi, je suis '+name+'. Je souhaite un rendez-vous pour : '+select.value+(date? ', le '+date : '')+'. Merci.';
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
   });
 
-  /* ---------- instant FAQ assistant (local layer first, no prices invented) ---------- */
+  /* chat assistant : instant FAQ, three languages, no invented prices */
   var chat=document.getElementById('chat'), msgs=document.getElementById('msgs'), opened=false;
   var MAPS='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent("128 boulevard d'Anfa, Casablanca");
   var L={
@@ -597,47 +707,44 @@ footer .fine{margin-top:44px;font-size:var(--step-small);color:#9fc3cf;line-heig
     });
     return '<div class="cards">'+out+'</div>';
   }
-  function addMsg(text,who){ var d=document.createElement('div'); d.className='msg '+who; d.textContent=text; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d; }
+  function addMsg(text,who){ var d=document.createElement('div'); d.className='msg '+who; if(/[\u0600-\u06FF]/.test(text)) d.setAttribute('dir','rtl'); d.textContent=text; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d; }
   function addCards(html){ var d=document.createElement('div'); d.innerHTML=html; var c=d.firstChild; msgs.appendChild(c); msgs.scrollTop=msgs.scrollHeight;
-    var b=c.querySelector('.booklink'); if(b){ b.addEventListener('click',function(){ toggleChat(false); }); } }
+    var bl=c.querySelector('.booklink'); if(bl) bl.addEventListener('click', function(){ toggleChat(false); }); }
   function answer(q){
-    var lang=langOf(q), l=L[lang], s=q.toLowerCase();
-    function has(){ for(var i=0;i<arguments.length;i++){ if(s.indexOf(arguments[i])>-1) return true; } return false; }
-    var key, cds=['wa'];
-    if(has('prix','tarif','coût','cout','combien','ثمن','سعر','أثمنة','price','cost','how much')){ key='price'; }
-    else if(has('horaire','heure','ouvert','مواعيد','ساعات','توقيت','hours','open','when')){ key='hours'; cds=['book','wa']; }
-    else if(has('adresse','où','ou se trouve','situe','عنوان','أين','فين','where','location','address','directions')){ key='loc'; cds=['dir','book']; }
-    else if(has('urgence','douleur','mal','ألم','وجع','مستعجل','emergency','pain','hurts')){ key='urg'; cds=['call','wa']; }
-    else if(has('rendez-vous','rendez vous','réserver','reserver','موعد','حجز','احجز','book','appointment')){ key='book'; cds=['book','wa']; }
-    else if(has('implant','زراعة','زرع','implants')){ key='implants'; cds=['book','wa']; }
-    else if(has('blanchiment','blanchir','تبييض','بياض','whitening','white')){ key='white'; cds=['book','wa']; }
-    else if(has('orthodont','aligneur','تقويم','orthodont','aligner','braces')){ key='ortho'; cds=['book','wa']; }
-    else if(has('couronne','prothèse','prothese','carie','تاج','تركيب','تسوس','crown','prosthet','cavit')){ key='care'; cds=['book','wa']; }
-    else if(has('soin','service','traitement','علاجات','خدمات','services','treatments','what do you do')){ key='services'; cds=['book','wa']; }
-    else if(has('merci','شكرا','thank')){ key='thanks'; cds=[]; }
-    else if(has('bonjour','salut','bonsoir','سلام','مرحبا','صباح','hello','hi')){ key='greet'; cds=['book','wa']; }
-    else { key='fallback'; }
+    var lang=langOf(q), l=L[lang], t=' '+q.toLowerCase()+' ', key='fallback', cds=['wa'];
+    if(/(prix|tarif|coût|cout|combien|ثمن|بشحال|سعر|price|cost|how much)/.test(t)){ key='price'; cds=['wa','book']; }
+    else if(/(horaire|heure|ouvert|مواعيد|أوقات|ساعات|hours|open)/.test(t)){ key='hours'; cds=['book','wa']; }
+    else if(/(où|adresse|situe|quartier|اتجاه|عنوان|فين|مكان|where|direction|location)/.test(t)){ key='loc'; cds=['dir','call']; }
+    else if(/(rendez|réserv|reserv|موعد|حجز|book|appointment)/.test(t)){ key='book'; cds=['book','wa']; }
+    else if(/(implant|زرع|غرس)/.test(t)){ key='implants'; cds=['book','wa']; }
+    else if(/(blanch|تبييض|بياض|whiten)/.test(t)){ key='white'; cds=['book','wa']; }
+    else if(/(orthodon|aligneur|تقويم|قوالب|braces|aligner)/.test(t)){ key='ortho'; cds=['book','wa']; }
+    else if(/(couronne|prothès|prothes|carie|dévital|devital|تاج|تركيب|تسوس|care|crown)/.test(t)){ key='care'; cds=['book','wa']; }
+    else if(/(urgen|douleur|mal aux dent|ألم|وجع|مستعجل|emergency|pain)/.test(t)){ key='urg'; cds=['call','wa']; }
+    else if(/(soin|service|traitement|علاج|علاجات|خدمات|treatment|service)/.test(t)){ key='services'; cds=['book','wa']; }
+    else if(/(merci|شكرا|thank)/.test(t)){ key='thanks'; cds=[]; }
+    else if(/(bonjour|salut|bonsoir|سلام|مرحبا|صباح|hello|hi\b)/.test(t)){ key='greet'; cds=['book','wa']; }
     setTimeout(function(){ addMsg(l[key],'bot'); if(cds.length) addCards(cards(lang,cds)); },180);
   }
   function toggleChat(openIt){
-    chat.classList.toggle('open',openIt);
-    if(openIt && !opened){ opened=true; var lang='fr'; addMsg(L[lang].greet,'bot'); addCards(cards(lang,['book','wa'])); }
+    chat.classList.toggle('open', openIt);
+    document.getElementById('chatOpen').setAttribute('aria-expanded', openIt);
+    if(openIt && !opened){ opened=true; addMsg(L.fr.greet,'bot'); addCards(cards('fr',['book','wa'])); }
     if(openIt){ setTimeout(function(){ document.getElementById('chatInput').focus(); },240); }
   }
-  document.getElementById('chatOpen').addEventListener('click',function(){ toggleChat(!chat.classList.contains('open')); });
-  document.getElementById('chatClose').addEventListener('click',function(){ toggleChat(false); });
-  document.getElementById('chatForm').addEventListener('submit',function(ev){
+  document.getElementById('chatOpen').addEventListener('click', function(){ toggleChat(!chat.classList.contains('open')); });
+  document.getElementById('chatClose').addEventListener('click', function(){ toggleChat(false); });
+  document.getElementById('chatForm').addEventListener('submit', function(ev){
     ev.preventDefault();
     var inp=document.getElementById('chatInput'), v=inp.value.trim();
     if(!v) return;
     addMsg(v,'me'); inp.value=''; answer(v);
   });
-  document.getElementById('chips').addEventListener('click',function(ev){
+  document.getElementById('chips').addEventListener('click', function(ev){
     var b=ev.target.closest('button[data-q]'); if(!b) return;
     addMsg(b.getAttribute('data-q'),'me'); answer(b.getAttribute('data-q'));
   });
 })();
 </script>
-
 </body>
 </html>
